@@ -1,0 +1,16 @@
+# Redireciona todas as requisições para o front controller (index.php),
+# permitindo URLs "transparentes" como /feedbacks/5.
+# Usado quando o projeto roda sob Apache. Com o servidor embutido do PHP
+# (php -S ... public/index.php), este arquivo não é necessário.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Se o arquivo/diretório solicitado existir, serve diretamente.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Caso contrário, encaminha tudo para o index.php.
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

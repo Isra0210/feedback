@@ -1,0 +1,7 @@
+/vendor/
+/database/*.sqlite
+/database/*.sqlite-journal
+.env
+.DS_Store
+*.log
+.php-cs-fixer.cache
